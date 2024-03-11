@@ -12,7 +12,7 @@ export function Routes() {
             <Tab.Screen name="home" component={Home} options={{
                 tabBarShowLabel: false, headerShown: false, tabBarIcon: ({focused}) => {
         if (focused) {
-            return (<Ionicons size={25} color={"#000"} name="home" />)
+            return (<Ionicons size={25} color={"#0000FF"} name="home" />)
         }
             return (<Ionicons size={20} color={"#000"} name="home-outline" />)
         }
@@ -21,7 +21,7 @@ export function Routes() {
         <Tab.Screen name="paginaSenhas" component={PaginaSenhas} options={{
                 tabBarShowLabel: false, headerShown: false, tabBarIcon: ({focused}) => {
         if (focused) {
-            return (<Ionicons size={25} color={"#000"} name="lock-closed" />)
+            return (<Ionicons size={25} color={"#0000FF"} name="lock-closed" />)
         }
             return (<Ionicons size={20} color={"#000"} name="lock-closed-outline" />)
         }
