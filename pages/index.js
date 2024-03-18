@@ -25,7 +25,8 @@ export function Home() {
         
         <Slider style={{ height: 50 }} 
           minimumValue={6}
-          maximumValue={20} minimumTrackTintColor="#ff0000"
+          maximumValue={20} 
+          minimumTrackTintColor="#ff0000"
           maximumTrackTintColor="#000"
           thumbTintColor="#392de9"
           value={qtde}
