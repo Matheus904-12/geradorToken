@@ -8,8 +8,8 @@ export function Home() {
   function gerarToken() {
     configTelaModal(true);
   }
-  const [qtde, defineQtde] = useState(6)
-  const [telaModal, configTelaModal] = useState(false)
+  const [qtde, defineQtde] = useState(6);
+  const [telaModal, configTelaModal] = useState(false);
 
   return (
 
