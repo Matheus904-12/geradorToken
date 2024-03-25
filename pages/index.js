@@ -3,13 +3,25 @@ import { ModalTokens } from '../components/modal';
 import Slider from "@react-native-community/slider";
 import { useState } from "react";
 
-export function Home() {
+let caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
-  function gerarToken() {
-    configTelaModal(true);
-  }
+export function Home() {
   const [qtde, defineQtde] = useState(6);
   const [telaModal, configTelaModal] = useState(false);
+  const [tokenValue, configTokenValue] = useState("")
+
+function gerarToken() {
+    configTelaModal(true);
+  }
+
+  function gerarToken() {
+    let token = ""
+    for (let i = 0, n = caracteres.length; i < qtde; i++) {
+        token += caracteres.charAt(Math.floor(Math.random() * n))
+    }
+    configTokenValue(token);
+    configTelaModal(true);
+}
 
   return (
 
@@ -37,13 +49,13 @@ export function Home() {
       <TouchableOpacity style={ESTILO.button} onPress={gerarToken}>
         
         <Text style={ESTILO.buttonText}>
-          Gerar Senha
+          Gerar Token
         </Text>
 
       </TouchableOpacity>
 
       <Modal visible={telaModal} animationType="fade" transparent={true}>
-        <ModalTokens handleClose={() => configTelaModal(false)} />
+        <ModalTokens token={tokenValue} fechar={() => configTelaModal(false)}/>
       </Modal>
 
     </View>
