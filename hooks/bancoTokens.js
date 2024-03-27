@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function Armazenamento() {
-
+    
     async function obterItem(chave) {
         try {
             const tokens = await AsyncStorage.getItem(chave);
@@ -37,12 +37,6 @@ export default function Armazenamento() {
         } catch (erro) {
             alert("Erro ao remover item", erro)
         }
-    }
-
-    async function salvarToken() {        
-        await salvarItem("@token", token)
-        alert(`Token ${token} salvo com sucesso`)
-        fechar();
     }
 
     return {

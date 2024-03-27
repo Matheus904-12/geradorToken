@@ -1,9 +1,9 @@
+
 import { View, StyleSheet, Pressable, Text, TouchableOpacity } from "react-native";
 import * as Clipboard from 'expo-clipboard';
-import Armazenamento from '../hooks/bancoTokens'
+import Armazenamento from '../hooks/bancoTokens';
 
-export function ModalTokens({fechar, token}) {
-
+export function ModalTokens({ fechar, token }) {
     const { salvarItem } = Armazenamento();
 
     async function copiarToken() {
@@ -12,40 +12,35 @@ export function ModalTokens({fechar, token}) {
         fechar();
     }
 
+    async function salvarToken() {
+        await salvarItem("@token", token)
+        alert(`Token ${token} salvo com sucesso`)
+        fechar();
+    }
+
     return (
         <View style={ESTILO.container}>
-
             <View style={ESTILO.content}>
-
                 <Text style={ESTILO.title}>
                     Senha Gerada
                 </Text>
-
-                <Pressable style={ESTILO.innerToken} onLongPress={copiarToken} >
-
-                    <Text style={ESTILO.text}selectable={true}> 
+                <Pressable style={ESTILO.innerToken} >
+                    <Text style={ESTILO.text} selectable={false} onLongPress={copiarToken}>
                         {token}
                     </Text>
                 </Pressable>
-
                 <View style={ESTILO.buttonArea}>
                     <TouchableOpacity style={ESTILO.button} onPress={fechar}>
-
-                        <Text style={ESTILO.buttonText} >
+                        <Text style={ESTILO.buttonText}>
                             Voltar
                         </Text>
-
                     </TouchableOpacity>
-
                     <TouchableOpacity style={[ESTILO.button, ESTILO.buttonSave]} onPress={salvarToken}>
-                        
                         <Text style={ESTILO.buttonSaveText}>
                             Salvar Senha
                         </Text>
-
                     </TouchableOpacity>
                 </View>
-
             </View>
 
         </View>
@@ -102,7 +97,6 @@ const ESTILO = StyleSheet.create({
         borderRadius: 8,
     },
     buttonSave: {
-
         backgroundColor: "#392DE9"
     },
     buttonSaveText: {

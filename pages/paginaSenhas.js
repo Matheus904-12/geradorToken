@@ -1,8 +1,9 @@
+
 import { View, StyleSheet, Text, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Armazenamento from '../hooks/bancoTokens';
-import { useState, useEffect } from 'react';
 import { CaixaToken } from '../components/tokenView';
+import { useState, useEffect } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 
 export function PaginaSenhas() {
@@ -16,13 +17,14 @@ export function PaginaSenhas() {
             defListaTokens(tokens);
         }
         carregaTokens()
-    }, [telaAtiva]);  
+    }, [telaAtiva]);
 
     async function deletarToken(item) {
-        const tokens  = await removerItem("@token", item)
+        const tokens = await removerItem("@token", item)
         defListaTokens(tokens)
     };
-    
+
+
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={ESTILO.header}>
